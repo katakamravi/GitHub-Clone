@@ -1,0 +1,85 @@
+
+
+html {
+	background-color: #222;
+	
+}
+
+
+.card {
+  height: 14em;
+	width: 18em;
+	transition: all .3s ease-in-out;
+  border: 1px solid #d4c7c752;
+  box-shadow: 0 10px 6px -6px #777;
+	&:hover {
+		box-shadow: 0 4px 10px 5px rgba(black, .2);
+	}
+}
+
+.card__link {
+	display: block;
+	padding: 1em;
+	text-decoration: none;
+}
+
+.searchContainer {
+	display: inline-flex;
+	flex: 1 1 300px;
+	position: relative;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+  }
+  
+  .searchIcon {
+	padding: 0.5rem;
+  }
+  
+  .searchBox {
+	border: 0;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	flex: 1;
+  }
+  
+  .searchButton {
+	background: #538AC5;
+	border: 0;
+	color: white;
+	padding: 0.5rem;
+	border-radius: 0;
+	cursor: pointer;
+  }
+
+
+.pagination {
+	display: inline-block;
+  }
+  
+  .pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+  }
+  
+  .pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+  .button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	outline: none;
+	cursor: pointer;
+  }

@@ -1,0 +1,57 @@
+<h3 *ngIf="!switchRepos" style="text-align: center;">List of GitHub Users</h3>
+<div *ngIf="!switchRepos" class="searchContainer" style="margin-left:980px;">
+  <i class="fa fa-search searchIcon"></i>
+  <input class="searchBox" type="search" name="search" placeholder="Search By User Name ..." (keyup)="dataAdd()" style="outline: none;" [(ngModel)]="userName">
+  <input type="submit" value="Search" class="searchButton" (click)="userSearch()" >
+</div>
+<div style="overflow: auto;height:480px;overflow-x: hidden;" *ngIf="!error && !switchRepos">
+  <div  *ngFor="let user of gitHubUsers;let i=index;">
+    <div class="col-3 card" style="display: inline-flex;float: left;margin-right: 18px;
+    margin-top: 20px;" id="card{{i}}">    
+        <!-- Icon -->
+        <div class="card__icon">
+         <img [src]="user.avatar_url" style="height: 140px;width:140px;margin-left: 60px;
+         margin-top: 14px;"/>
+         <div >
+          <p style="text-align: center;margin-left: 50px;
+          padding-top: -12px;
+          font-weight: bolder;
+          margin-top: 3px;">{{user.login | uppercase}}</p>
+         </div>
+        </div>
+        <div class="" style="margin-top: 165px">     
+          <p style="
+          margin-top: 37px;cursor: pointer;" (click)="routeToRepos(user)">Repositories</p>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+        
+    
+      </div>
+  </div>
+  
+</div>
+<div *ngIf="error && !switchRepos">
+  <p style="text-align: center;">{{errorMessage}}</p>
+</div>
+
+<div *ngIf="!switchRepos && gitHubUsers.length >= 30" class="pagination" style="
+margin-left: 470px;
+margin-top: 30px;
+">
+<a href="javascript:void(0)" (click)="prev()" *ngIf="pagenumber != 1">&laquo;</a>
+<a *ngFor="let items of paginationNumbers" [ngClass]="{'active': pagenumber == items}" (click)="pagination(items)">
+  {{items}}
+</a>
+<a href="javascript:void(0)" (click)="next()" *ngIf="pagenumber != 10">&raquo;</a>
+</div>
+<div *ngIf="switchRepos">
+    <button  class="button" (click)="backToUsers()">
+        Back
+      </button>
+  <app-repos [repos]="user" (backToUsers)="usersEmit($event)">
+
+  </app-repos>
+</div>
+
+
+<router-outlet></router-outlet>
