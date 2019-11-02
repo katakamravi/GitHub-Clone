@@ -61,7 +61,7 @@ export class UsersComponent implements OnInit {
       this.getusersData();
     }
   }
-  // click event to get data based on  paage number
+  // click event to get data based on  page number
   pagination(item) {
     this.pagenumber = item;
     this.pageData = this.pagenumber * 30;
@@ -85,6 +85,10 @@ export class UsersComponent implements OnInit {
   }
   backToUsers() {
   this.switchRepos = false;
+  }
+  routeToRepos(user) {
+  this.switchRepos = true;
+  this.user = user;
   }
 }
 
